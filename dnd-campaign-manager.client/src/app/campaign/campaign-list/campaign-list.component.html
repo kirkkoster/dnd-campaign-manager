@@ -1,0 +1,9 @@
+<div class="campaign-list">
+  <h2>Your Campaigns</h2>
+  <ul>
+    <li *ngFor="let campaign of campaigns$ | async">
+      <a [routerLink]="['/campaign', campaign.id]">{{ campaign.name }}</a>
+    </li>
+  </ul>
+  <button routerLink="/new-campaign">Add New Campaign</button>
+</div>

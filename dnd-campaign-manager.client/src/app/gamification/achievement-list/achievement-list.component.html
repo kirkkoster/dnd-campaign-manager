@@ -1,0 +1,9 @@
+<div class="achievement-list">
+  <h2>Your Achievements</h2>
+  <ul>
+    <li *ngFor="let achievement of achievements$ | async">
+      <span>{{ achievement.name }}</span> -
+      <span>{{ achievement.unlocked ? 'Unlocked' : 'Locked' }}</span>
+    </li>
+  </ul>
+</div>

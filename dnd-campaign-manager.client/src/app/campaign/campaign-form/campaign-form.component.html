@@ -1,0 +1,12 @@
+<div class="campaign-form">
+  <h2>Add New Campaign</h2>
+  <form (ngSubmit)="onSubmit()">
+    <label for="name">Campaign Name:</label>
+    <input type="text" id="name" [(ngModel)]="name" name="name" required />
+
+    <label for="description">Description:</label>
+    <textarea id="description" [(ngModel)]="description" name="description" required></textarea>
+
+    <button type="submit">Add Campaign</button>
+  </form>
+</div>

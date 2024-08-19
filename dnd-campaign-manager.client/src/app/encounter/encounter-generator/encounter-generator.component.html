@@ -1,0 +1,30 @@
+<div class="encounter-generator">
+  <h2>Generate Encounter</h2>
+  <form (ngSubmit)="generateEncounter()">
+    <label for="type">Encounter Type:</label>
+    <select id="type" [(ngModel)]="type" name="type">
+      <option value="0">Combat</option>
+      <option value="1">Social</option>
+      <option value="2">Exploration</option>
+    </select>
+
+    <label for="difficulty">Difficulty:</label>
+    <select id="difficulty" [(ngModel)]="difficulty" name="difficulty">
+      <option value="easy">Easy</option>
+      <option value="medium">Medium</option>
+      <option value="hard">Hard</option>
+      <option value="deadly">Deadly</option>
+    </select>
+
+    <button type="submit">Generate</button>
+  </form>
+
+  <div *ngIf="generatedEncounter">
+    <h3>Encounter Details</h3>
+    <p><strong>Name:</strong> {{ generatedEncounter.name }}</p>
+    <p><strong>Type:</strong> {{ generatedEncounter.encounterType }}</p>
+    <p><strong>Difficulty:</strong> {{ generatedEncounter.difficulty }}</p>
+    <p><strong>Creatures:</strong> {{ generatedEncounter.creatures.join(', ') }}</p>
+    <p><strong>Loot:</strong> {{ generatedEncounter.loot.join(', ') }}</p>
+  </div>
+</div>

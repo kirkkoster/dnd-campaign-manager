@@ -1,0 +1,6 @@
+@dnd_campaign_manager.Server_HostAddress = http://localhost:5276
+
+GET {{dnd_campaign_manager.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
