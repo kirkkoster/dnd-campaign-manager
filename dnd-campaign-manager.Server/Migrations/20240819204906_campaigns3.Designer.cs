@@ -4,6 +4,7 @@ using Campaign_Manager.Server.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace dnd_campaign_manager.Server.Migrations
 {
     [DbContext(typeof(CampaignManagerContext))]
-    partial class CampaignManagerContextModelSnapshot : ModelSnapshot
+    [Migration("20240819204906_campaigns3")]
+    partial class campaigns3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
