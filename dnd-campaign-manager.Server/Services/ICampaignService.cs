@@ -4,10 +4,10 @@ namespace dnd_campaign_manager.Server.Services
 {
     public interface ICampaignService
     {
-        Task<IEnumerable<Campaigns>> GetAllCampaignsAsync();
+        Task<IEnumerable<Campaigns>> GetAllCampaignsAsync(int ownerId);
         Task<Campaigns> GetCampaignByIdAsync(int id);
         Task<Campaigns> AddCampaignAsync(Campaigns campaign);
         Task<Campaigns> UpdateCampaignAsync(Campaigns campaign);
-        Task<bool> DeleteCampaignAsync(int id);
+        Task<bool> DeleteCampaignAsync(int id, int ownerId);
     }
 }

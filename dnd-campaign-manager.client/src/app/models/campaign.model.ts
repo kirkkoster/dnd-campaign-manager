@@ -1,6 +1,7 @@
 import { Session } from './session.model';
 export interface Campaign {
-  id: string;
+  id: number;
+  ownerId: number;
   name: string;
   description: string;
   sessions: Session[];

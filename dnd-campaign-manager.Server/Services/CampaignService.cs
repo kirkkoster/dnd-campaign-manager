@@ -16,42 +16,40 @@ public class CampaignService : ICampaignService
         _context = context;
     }
 
-    public async Task<IEnumerable<Campaigns>> GetAllCampaignsAsync()
+    public async Task<IEnumerable<Campaigns>> GetAllCampaignsAsync(int ownerId)
     {
-        var campaignList = new List<Campaigns>();
-
-        return campaignList; //await _context.Campaigns.ToListAsync();
+        return await _context.Campaign.Where(x => x.OwnerId == ownerId).ToListAsync();
     }
 
     public async Task<Campaigns> GetCampaignByIdAsync(int id)
     {
-        var campaignList = new Campaigns();
-        return campaignList; // await _context.Campaigns.FindAsync(id);
+        var campaign = await _context.Campaign.SingleOrDefaultAsync(x => x.Id == id);
+        return campaign;
     }
 
     public async Task<Campaigns> AddCampaignAsync(Campaigns campaign)
     {
-        //_context.Campaigns.Add(campaign);
+       _context.Campaign.Add(campaign);
         await _context.SaveChangesAsync();
         return campaign;
     }
 
     public async Task<Campaigns> UpdateCampaignAsync(Campaigns campaign)
     {
-        //_context.Entry(campaign).State = EntityState.Modified;
+        _context.Entry(campaign).State = EntityState.Modified;
         await _context.SaveChangesAsync();
         return campaign;
     }
 
-    public async Task<bool> DeleteCampaignAsync(int id)
+    public async Task<bool> DeleteCampaignAsync(int id, int ownerId)
     {
-        //var campaign = await _context.Campaigns.FindAsync(id);
-        //if (campaign == null)
-        //{
-        //    return false;
-        //}
+        var campaign = await _context.Campaign.FirstOrDefaultAsync(x => x.Id == id && x.OwnerId == ownerId);
+        if (campaign == null)
+        {
+            return false;
+        }
 
-        //_context.Campaigns.Remove(campaign);
+        _context.Campaign.Remove(campaign);
         await _context.SaveChangesAsync();
         return true;
     }

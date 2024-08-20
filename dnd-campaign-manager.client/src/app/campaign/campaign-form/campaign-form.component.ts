@@ -16,12 +16,13 @@ export class CampaignFormComponent {
 
   onSubmit(): void {
     const newCampaign: Campaign = {
-      id: Math.random().toString(36).substr(2, 9),  // Generates a random ID
+      id: 0,
+      ownerId: 1,
       name: this.name,
       description: this.description,
       sessions: []
     };
-    this.campaignService.addCampaign(newCampaign);
+    this.campaignService.createCampaign(newCampaign);
     this.router.navigate(['/campaigns']);  // Redirect to the campaign list
   }
 }
